@@ -1,31 +1,71 @@
-const question = '飼っているペットはどれ。';
-const answers = [
-  '猫',
-  '犬',
-  'はむ',
-  'かめ'
+const quizList =[
+  {
+    question: '飼っているペットはどれ？',
+    answers: [
+      '犬', 
+      '猫',
+      'はむ',
+      '金魚'
+    ],
+    correct: '猫'
+  }, {
+    question: 'ペットの名前は？',
+    answers: [
+      'クッキー',
+      'くー',
+      'く〜',
+      'ぶー。'
+    ],
+    correct: 'ぶー。'
+  }, {
+    question: '好きなことは？',
+    answers: [
+      'ご飯',
+      '毛づくろい',
+      '昼寝',
+      '猫じゃらし'
+    ],
+    correct: '毛づくろい'
+  }
 ];
-const correct = '猫';
 
-//定数の文字列をHTMLに反映させる
+const quizLength = quizList.length;
+let quizIndex = 0;
+
+//buttonのobjectをとる
 const $button = document.getElementsByTagName('button');
+// console.log($button);
+const buttonLength = $button.length;
 
 // クイズの問題文、選択肢を定義する
-let buttonLength = $button.length;
 const setQuiz = () => {
-  document.getElementById('js-question').textContent = question;
-  for (let i = 0; i < buttonLength; i++) {
-    $button[i].textContent = answers[i];
+  // console.log(quizIndex);
+  document.getElementById('js-question').textContent = quizList[quizIndex].question;
+  let buttonIndex = 0;
+  while(buttonIndex < buttonLength) {
+    $button[buttonIndex].textContent = quizList[quizIndex].answers[buttonIndex];
+    buttonIndex++;  
   }
 }
 setQuiz();
 
 //正誤判定
+//eはeventのobject
 const clickHandler = (e) => {
-  if(correct === e.target.textContent ) {
+  // console.log(e);
+  if(quizList[quizIndex].correct === e.target.textContent ) {
     window.alert('★正解★');
   } else {
     window.alert('不正解。');
+  }
+
+  //次の問題にいく処理
+  quizIndex++;
+  if(quizIndex < quizLength) {
+    //問題がまだある
+    setQuiz();
+  } else {
+    window.alert('終了！');
   }
 };
 
