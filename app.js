@@ -31,6 +31,7 @@ const quizList =[
 
 const quizLength = quizList.length;
 let quizIndex = 0;
+let score = 0;
 
 //buttonのobjectをとる
 const $button = document.getElementsByTagName('button');
@@ -55,6 +56,7 @@ const clickHandler = (e) => {
   // console.log(e);
   if(quizList[quizIndex].correct === e.target.textContent ) {
     window.alert('★正解★');
+    score++;
   } else {
     window.alert('不正解。');
   }
@@ -65,7 +67,7 @@ const clickHandler = (e) => {
     //問題がまだある
     setQuiz();
   } else {
-    window.alert('終了！');
+    window.alert('終了！あなたの正解数は' + score + '/' + quizLength + 'です。');
   }
 };
 
