@@ -33,7 +33,7 @@ const quizLength = quizList.length;
 let quizIndex = 0;
 let score = 0;
 
-//buttonのobjectをとる
+//htmlのobjectをとる
 const $button = document.getElementsByTagName('button');
 // console.log($button);
 const buttonLength = $button.length;
@@ -71,6 +71,11 @@ const clickHandler = (e) => {
   }
 };
 
+// $button[0].addEventListener('click', () => {
+//   if ($button[0].textContent === correct) {
+//     window.alert('正解');
+//   }
+// });
 for (let j = 0; j < buttonLength; j++) {
   $button[j].addEventListener('click', (e) => {
    clickHandler(e);
