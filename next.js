@@ -3,16 +3,24 @@ const imageList = [
     question: 'くーちゃんはどれ？',
     answers: [
       //画像の問題を作りたい
+      'A',
+      'B',
+      'C',
+      'D'
     ] ,
-    correct: ,
-  },
+    correct: 'A',
+  },  
   {
     question: 'びはどれ？',
     answers: [
       //画像の問題を作りたい
+      'A',
+      'B',
+      'C',
+      'D'
     ] ,
-    correct: ,
-  }
+    correct: 'C',
+  },
 ];
 
 
